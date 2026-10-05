@@ -25,21 +25,46 @@ Conceptos a aplicar: Listas, diccionarios, funciones, ciclo for y condicionales.
 
 num_produc = int(input("¿Cuántos productos desea registrar?\n"))
 
-list_produc = []
-produc = {} 
+list_produc = [] 
 
 for p in range(num_produc):
 
     nom_produc = str(input("Ingresa el nombre del producto.\n"))
-    produc["Nombre"] = nom_produc
-
+    
     pre_produc = float(input("Ingresa el precio del producto.\n"))
-    produc["Precio"] = pre_produc
-
+    
     can_produc = int(input("Ingresa la cantidad de productos.\n"))
-    produc["Cantidad"] = can_produc
 
-    list_produc.append(produc)
+    list_produc.append({
+        "Nombre": nom_produc,
+        "Precio": pre_produc,
+        "Cantidad": can_produc
+    })
 
-print(produc["Nombre"])
-print(produc)
+produc_may = max(list_produc, key=lambda produc: produc["Cantidad"])
+
+produc_min = min(list_produc, key=lambda produc: produc["Cantidad"])
+
+
+print("Lista de productos: ")
+for cont_produc in list_produc:
+    print(cont_produc["Nombre"])
+
+print(f"El producto con mayor cantidad es: {produc_may["Nombre"]}")
+
+print(f"El producto con menor cantidad es: {produc_min["Nombre"]}")
+
+def prec_tot():
+    return sum(
+        prod["Precio"] * prod["Cantidad"]
+        for prod in list_produc
+    )
+
+print(f"Valor total del inventario: {prec_tot()}")
+
+for produc in list_produc:
+
+    if  produc["Cantidad"] < 5:
+
+        print(f"Esto son los productos con bajas existencia: {produc["Nombre"]}")
+        
