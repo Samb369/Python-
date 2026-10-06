@@ -39,27 +39,42 @@ for cont_not in range(num_not):
 
 def estd_not():
 
+    prom_est = sum(estd["Nota Final"] for estd in estudiantes) / len(estudiantes)
+    print(f"\nEl promedio general del grupo es: {prom_est}\n")
+
+    for cont_not in estudiantes:
+
+
+        if cont_not["Nota Final"] >= 4.5:
+
+            print(f"Los estudiantes con nota excelente: {cont_not['Nombre']}")
+
+        elif cont_not["Nota Final"] >= 3.5 and cont_not["Nota Final"] < 4.5:
+
+            print(f"Los estudiantes con nota bueno: {cont_not['Nombre']}")
+
+        elif cont_not["Nota Final"] < 3.5 and cont_not["Nota Final"] >= 3.0:
+
+            print(f"Los estudiantes con nota aprobado: {cont_not['Nombre']}")
+
+        elif cont_not["Nota Final"] < 3.0:
+
+            print(f"Los estudiantes con nota reprobado: {cont_not['Nombre']}")
+
     for cont_not in estudiantes:
 
         if cont_not["Nota Final"] < 3.0:
 
-            print("Reprobado")
-        elif cont_not["Nota Final"] < 3.5:
+            print(f"Los estudiantes reprobados: ")
+            print(f"{cont_not['Nombre']}")
 
-            print("Aprobado")
-        elif cont_not["Nota Final"] < 4.5:
+        elif cont_not["Nota Final"] >= 3.0:
 
-            print("Bueno")
-        elif cont_not["Nota Final"] > 4.5:
+            print(f"Los estudiantes aprobados: ")
+            print(f"{cont_not['Nombre']}")
 
-            print("Excelente")
+estd_not()
 
-        est_apro = cont_not["Nota Final"] > 3.0
-        est_desp = cont_not["Nota Final"] <= 3.0
-
-        return est_apro, est_desp
-
-print(estd_not)
 
 
 
