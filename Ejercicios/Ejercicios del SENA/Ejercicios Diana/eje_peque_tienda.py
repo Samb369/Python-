@@ -26,7 +26,6 @@ Datos de salida:
 Conceptos a aplicar: Diccionarios, listas, funciones, ciclo while, condicionales y acumuladores.
 '''
 
-from math import prod
 
 
 producs = {
@@ -61,17 +60,17 @@ def apli_desc(tot):
 
     if tot > 100000:
 
-        descuento = tot * 0.10
+        desc = tot * 0.10
 
     else:
 
-        descuento = 0
+        desc = 0
 
-    return descuento
+    return desc
 
 def most_resu(carrit, tot, desc):
 
-    print("\nRESUMEN COMPRA")
+    print("\nRESUMEN DE LA COMPRA")
 
     for art in carrit:
 
@@ -99,20 +98,20 @@ while True:
         print("La cantidad debe ser mayor a cero.")
         continue
 
-    subtotal = subtot_produc(producs[prod_eleg], cant_prod)
+    subtot = subtot_produc(producs[prod_eleg], cant_prod)
 
     carrit.append({
 
         "producto": prod_eleg,
         "cantidad": cant_prod,
         "precio": producs[prod_eleg],
-        "subtotal": subtotal
+        "subtotal": subtot
     })
 
 
-    opcion = input("¿Desea agregar otro producto? (S/N): ").upper()
+    opcE = input("¿Desea agregar otro producto? (S/N): ").upper()
 
-    if opcion == "N":
+    if opcE == "N":
         break
 
 tot = tot_comp(carrit)
